@@ -1,14 +1,49 @@
 import random
+from color import get_color
 arr= [*range(1,37),'0','00']
+balance=50
+while balance!=0:
 
-spin=random.choice(arr)
-x=input("enter your bet ").capitalize()
+    spin=random.choice(arr)
+    betstyle=input("enter your betting preferance (Color,Number,Range) ").capitalize()
+    betamount=int(input("enter bet amount"))
+    balance-=betamount
+    color=get_color(spin)
 
-if x=="Red" and spin%2==1:
-    print (f"the winning number is {spin}, you win")
-elif x=="Black" and spin%2==0:
-    print (f"the winning number is {spin}, you win")
-elif x=="Green" and (spin=='0' or spin=='00'):
-    print (f"the winning number is {spin}, you win")
-else:
-    print (f"the winning number is {spin}, you lose")
+    if betstyle=="Color":
+        mycolor=input("enter your bet (color) ").capitalize()
+        if mycolor==color:
+            print (f"you win! the winning number is {spin} , and the color is {color} ")
+            if color=="Green":
+                balance+=betamount*14
+            else:
+                balance+=betamount*2
+        else:
+            print (f"you lose, the winning number is {spin} , and the color is {color} ")
+    elif betstyle=="Number":
+        y=input(int("enter your bet (number) "))
+        if y==spin:
+            print (f"you win! the winning number is {spin} , and the color is {color} ")
+            balance+=betamount*36
+        else:
+            print (f"you lose, the winning number is {spin} , and the color is {color} ")
+    elif betstyle=="Range":
+        myrange=input("enter your desired range (1-18 or 19-36) ")
+        if myrange=="1-18":
+            if spin<=18:
+                print (f"you win, the winning number is {spin} , and the color is {color} ")
+                balance+=betamount*2
+            else:
+                print (f"you lose, the winning number is {spin} , and the color is {color} ")
+        elif myrange=="19-36":
+            if spin>=18:
+                print (f"you win, the winning number is {spin} , and the color is {color} ")
+                balance+=betamount*2
+            else:
+                print (f"you lose, the winning number is {spin} , and the color is {color} ")
+        else:
+            print ("invalid range, please try again")
+    print (f"current balance is {balance}")
+print ("Game Over!")
+            
+            
