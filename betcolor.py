@@ -1,0 +1,18 @@
+def betcolor(spin,winningcolor,betamount,balance):
+    valid_colors=['Green','Red','Black']
+    while True:
+        try:
+            mycolor=input("enter your bet (color) ").capitalize()
+            if mycolor not in valid_colors:
+                raise ValueError
+            if mycolor==winningcolor:
+                print (f"you win! the winning number is {spin} , and the color is {winningcolor} ")
+                if winningcolor=="Green":
+                    balance+=betamount*14
+                else:
+                    balance+=betamount*2
+            else:
+                print (f"you lose, the winning number is {spin} , and the color is {winningcolor} ")
+            return balance
+        except ValueError:
+            print('please enter a valid color')
