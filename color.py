@@ -6,3 +6,4 @@ def get_color(roulette):
             return "Black"
         else:
             return "Red"
+#returns the winning color

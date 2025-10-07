@@ -1,12 +1,12 @@
-import random
+import random, bet
 from color import get_color
 arr= [*range(1,37),'0','00']
 balance=50
-while balance!=0:
+while balance>0:
 
     spin=random.choice(arr)
     betstyle=input("enter your betting preferance (Color,Number,Range) ").capitalize()
-    betamount=int(input("enter bet amount"))
+    betamount=bet.betting(balance)
     balance-=betamount
     color=get_color(spin)
 
@@ -21,7 +21,7 @@ while balance!=0:
         else:
             print (f"you lose, the winning number is {spin} , and the color is {color} ")
     elif betstyle=="Number":
-        y=input(int("enter your bet (number) "))
+        y=int(input("enter your bet (number) "))
         if y==spin:
             print (f"you win! the winning number is {spin} , and the color is {color} ")
             balance+=betamount*36
