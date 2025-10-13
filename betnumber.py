@@ -10,3 +10,5 @@ def betnumber (spin,balance,color,betamount):
             return balance
         except ValueError:
             print ("Please enter an Integer")
+
+#number betting function
