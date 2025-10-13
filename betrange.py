@@ -20,6 +20,6 @@ def betrange (spin,balance,betamount,color):
                 raise ValueError("please enter a valid range")
         except ValueError as e:
             print (e)
-
+#betting range function
 if __name__=="__main__":
     betrange(14,50,50,"black")
