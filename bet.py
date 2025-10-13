@@ -8,3 +8,4 @@ def betting(Balance):
                 return bet
         except ValueError:
             print ("please enter an integer")
+#amount betting function

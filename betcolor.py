@@ -16,3 +16,4 @@ def betcolor(spin,winningcolor,betamount,balance):
             return balance
         except ValueError:
             print('please enter a valid color')
+#color betting function
